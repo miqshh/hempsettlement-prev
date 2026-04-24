@@ -11,7 +11,7 @@ export default function Home() {
           <div className={styles.smokeLayer}></div>
           <div className={styles.smokeLayer2}></div>
         </div>
-        <Image src="/images/tlohs.png" alt="Hemp Settlement Elite" fill style={{ objectFit: 'cover', objectPosition: 'center bottom' }} priority className={styles.heroBg} />
+        <Image src="images/tlohs.png" alt="Hemp Settlement Elite" fill style={{ objectFit: 'cover', objectPosition: 'center bottom' }} priority className={styles.heroBg} />
         <div className={styles.heroOverlay}></div>
         <div className={`container ${styles.heroContent}`}>
           <div className={styles.heroKicker}>HEMP SETTLEMENT</div>
@@ -37,21 +37,21 @@ export default function Home() {
             category="Mieszanka ziołowa" 
             price="18,99 zł" 
             description="Profil na dzień, botaniczna świeżość. Energia płynąca prosto z natury."
-            imageSrc="/images/daytimeMieszanka.png" 
+            imageSrc="images/daytimeMieszanka.png" 
           />
           <ProductCard 
             name="DREAM CATCHER" 
             category="Mieszanka ziołowa" 
             price="18,99 zł" 
             description="Profil na noc, wyciszenie konesera. Twój moment botanicznego relaksu."
-            imageSrc="/images/nighttimeMieszanka.png" 
+            imageSrc="images/nighttimeMieszanka.png" 
           />
           <ProductCard 
             name="Bletki All In One" 
             category="Akcesoria" 
             price="11,00 zł" 
             description="Bibułki, filtry, tacka, młynek i ubijak. Nowy standard w branży."
-            imageSrc="/images/bletki.png" 
+            imageSrc="images/bletki.png" 
           />
         </div>
       </section>
@@ -71,7 +71,7 @@ export default function Home() {
             <Link href="/wspolpraca" className="btn-secondary" style={{ marginTop: '2rem' }}>Zostań Partnerem</Link>
           </div>
           <div className={styles.vendingImage}>
-            <Image src="/images/automat.png" alt="Hemp Settlement Vending Machine" width={400} height={600} style={{ objectFit: 'contain' }} />
+            <Image src="images/automat.png" alt="Hemp Settlement Vending Machine" width={400} height={600} style={{ objectFit: 'contain' }} />
           </div>
         </div>
       </section>

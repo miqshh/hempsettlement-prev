@@ -14,7 +14,7 @@ export default function Navbar() {
       <nav className={styles.navbar}>
         <div className={`container ${styles.navContainer}`}>
           <Link href="/">
-            <Image src="/images/cropped-LOGO-1.png" alt="Hemp Settlement Logo" width={220} height={75} style={{ objectFit: 'contain' }} priority />
+            <Image src="images/cropped-LOGO-1.png" alt="Hemp Settlement Logo" width={220} height={75} style={{ objectFit: 'contain' }} priority />
           </Link>
           <div className={styles.navLinks}>
             <Link href="/">Strona Główna</Link>
