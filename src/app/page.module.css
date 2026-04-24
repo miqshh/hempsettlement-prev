@@ -1,7 +1,7 @@
 .hero {
   position: relative;
-  height: 80vh;
-  min-height: 650px;
+  height: 65vh;
+  min-height: 550px;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -23,8 +23,8 @@
 
 .heroContent {
   max-width: 800px;
-  z-index: 10;
-  padding-top: 100px;
+  z-index: 1;
+  padding-top: 85px;
 }
 
 .goldText {
@@ -52,7 +52,6 @@
   position: relative;
   display: inline-block;
   
-  /* Efekt lśniącego złota */
   background: linear-gradient(
     110deg,
     var(--color-accent) 0%,
@@ -66,7 +65,7 @@
   -webkit-background-clip: text;
   background-clip: text;
   animation: goldShimmer 4s infinite linear;
-  filter: drop-shadow(0 4px 15px rgba(0,0,0,1));
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));
 }
 
 @keyframes goldShimmer {
@@ -151,12 +150,8 @@
 
 .vendingImage img {
   filter: drop-shadow(0 0 30px rgba(233, 193, 118, 0.1));
-}
-
-@media (max-width: 768px) {
-  .vendingGrid {
-    grid-template-columns: 1fr;
-  }
+  max-width: 100%;
+  height: auto;
 }
 
 .smokeArea {
@@ -210,4 +205,58 @@
   0% { transform: translate(0, 0) scale(1); }
   50% { transform: translate(4%, -4%) scale(1.1); }
   100% { transform: translate(-4%, 5%) scale(1.05); }
+}
+
+/* Media Queries */
+@media (max-width: 900px) {
+  .hero {
+    height: 80vh;
+    min-height: 500px;
+    text-align: center;
+  }
+
+  .heroContent {
+    padding-top: 100px;
+  }
+
+  .heroKicker::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .vendingGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .vendingContent {
+    text-align: center;
+  }
+
+  .editorial {
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid var(--color-accent);
+    border-bottom: 1px solid var(--color-accent);
+    padding: 1.5rem 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .productGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .vending {
+    padding: 4rem 0;
+  }
+
+  .editorial {
+    font-size: 1.5rem;
+  }
+
+  .heroSub {
+    font-size: 1rem;
+  }
 }

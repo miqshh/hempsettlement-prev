@@ -77,8 +77,19 @@
   font-weight: 600;
   letter-spacing: 0.05em;
   transition: opacity 0.2s ease;
+  padding: 0.5rem 0; /* Better touch target */
 }
 
 .quickAdd:hover {
   opacity: 0.7;
+}
+
+@media (max-width: 480px) {
+  .name {
+    font-size: 1.3rem;
+  }
+  
+  .description {
+    font-size: 0.85rem;
+  }
 }

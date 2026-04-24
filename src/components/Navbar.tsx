@@ -1,27 +1,54 @@
 "use client";
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useCart } from '@/context/CartContext';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { items, totalItems, totalPrice, removeFromCart } = useCart();
+
+  // Close mobile menu when a link is clicked
+  const handleMobileMenuClick = () => {
+    setIsMobileMenuOpen(false);
+  };
+
+  // Prevent scrolling when menus are open
+  useEffect(() => {
+    if (isDrawerOpen || isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isDrawerOpen, isMobileMenuOpen]);
 
   return (
     <>
       <nav className={styles.navbar}>
         <div className={`container ${styles.navContainer}`}>
-          <Link href="/">
-            <Image src="/hempsettlement-prev/images/cropped-LOGO-1.png" alt="Hemp Settlement Logo" width={220} height={75} style={{ objectFit: 'contain' }} priority />
+          <Link href="/" className={styles.logoContainer} onClick={() => setIsMobileMenuOpen(false)}>
+            <Image 
+              src="/hempsettlement-prev/images/cropped-LOGO-1.png" 
+              alt="Hemp Settlement Logo" 
+              width={220} 
+              height={75} 
+              style={{ objectFit: 'contain', width: '100%', height: 'auto' }} 
+              priority 
+            />
           </Link>
+          
           <div className={styles.navLinks}>
             <Link href="/">Strona Główna</Link>
             <Link href="/sklep">Sklep</Link>
             <Link href="/wspolpraca">Współpraca</Link>
             <Link href="/o-nas">O nas</Link>
           </div>
+
           <div className={styles.navActions}>
             <a href="https://www.instagram.com/hempsettlement/" target="_blank" rel="noopener noreferrer" className={styles.igBtn}>
               Instagram
@@ -29,16 +56,42 @@ export default function Navbar() {
             <button className={styles.cartBtn} onClick={() => setIsDrawerOpen(true)}>
               Koszyk ({totalItems})
             </button>
+            <button 
+              className={`${styles.hamburger} ${isMobileMenuOpen ? styles.open : ''}`} 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Menu"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
           </div>
         </div>
       </nav>
+
+      {/* Mobile Menu Overlay */}
+      <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.open : ''}`}>
+        <Link href="/" onClick={handleMobileMenuClick}>Strona Główna</Link>
+        <Link href="/sklep" onClick={handleMobileMenuClick}>Sklep</Link>
+        <Link href="/wspolpraca" onClick={handleMobileMenuClick}>Współpraca</Link>
+        <Link href="/o-nas" onClick={handleMobileMenuClick}>O nas</Link>
+        <a 
+          href="https://www.instagram.com/hempsettlement/" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className={`${styles.igBtn} ${styles.igBtnMobile}`}
+          onClick={handleMobileMenuClick}
+        >
+          Instagram
+        </a>
+      </div>
 
       {/* Drawer */}
       <div className={`${styles.drawerOverlay} ${isDrawerOpen ? styles.open : ''}`} onClick={() => setIsDrawerOpen(false)}></div>
       <div className={`${styles.drawer} ${isDrawerOpen ? styles.open : ''}`}>
         <div className={styles.drawerHeader}>
           <h3>Twój Koszyk</h3>
-          <button onClick={() => setIsDrawerOpen(false)}>&times;</button>
+          <button onClick={() => setIsDrawerOpen(false)} aria-label="Zamknij">&times;</button>
         </div>
         <div className={styles.drawerContent}>
           {items.length === 0 ? (
