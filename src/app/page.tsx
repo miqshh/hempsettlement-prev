@@ -11,7 +11,7 @@ export default function Home() {
           <div className={styles.smokeLayer}></div>
           <div className={styles.smokeLayer2}></div>
         </div>
-        <Image src="/hempsettlement-prev/images/tlohs.png" alt="Hemp Settlement Elite" fill style={{ objectFit: 'cover', objectPosition: 'center bottom' }} priority className={styles.heroBg} />
+        <Image src="/hempsettlement-prev/images/tlohs.png" alt="Hemp Settlement Elite" fill style={{ objectFit: 'cover', objectPosition: 'center' }} priority className={styles.heroBg} />
         <div className={styles.heroOverlay}></div>
         <div className={`container ${styles.heroContent}`}>
           <div className={styles.heroKicker}>HEMP SETTLEMENT</div>
@@ -19,7 +19,7 @@ export default function Home() {
             Wszystko czego potrzebujesz.<br/>Nic czego nie potrzebujesz.
           </h1>
           <p className={styles.heroSub}>Botaniczny prestiż w codziennej postaci.</p>
-          <Link href="/sklep" className="btn-primary" style={{ marginTop: '2rem' }}>Odkryj kolekcję</Link>
+          <Link href="/sklep" className={styles.heroBtn}>Odkryj kolekcję</Link>
         </div>
       </section>
 
