@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
+  basePath: '/hempsettlement-prev',
   images: {
     unoptimized: true,
   },
@@ -10,7 +11,7 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  trailingSlash: true, // Ważne dla GitHub Pages, żeby linki działały poprawnie
+  trailingSlash: true,
 };
 
 module.exports = nextConfig;
