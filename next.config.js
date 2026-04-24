@@ -4,13 +4,13 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Całkowite wyłączenie sprawdzania typów i lintera podczas budowania na serwerze
   typescript: {
     ignoreBuildErrors: true,
   },
   eslint: {
     ignoreDuringBuilds: true,
   },
+  trailingSlash: true, // Ważne dla GitHub Pages, żeby linki działały poprawnie
 };
 
-export default nextConfig;
+module.exports = nextConfig;
