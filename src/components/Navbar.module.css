@@ -1,6 +1,6 @@
 .navbar {
   border-bottom: 1px solid rgba(233, 193, 118, 0.2);
-  padding: 1.5rem 0;
+  padding: 0.75rem 0;
   position: sticky;
   top: 0;
   background-color: rgba(18, 20, 17, 0.95);
@@ -19,17 +19,24 @@
   align-items: center;
 }
 
+.logoContainer {
+  display: block;
+  max-width: 160px;
+  line-height: 0;
+}
+
 .navLinks {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .navLinks a {
   font-weight: 500;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  font-size: 1.17rem;
+  font-size: 0.9rem;
   transition: color 0.3s ease;
+  white-space: nowrap;
 }
 
 .navLinks a:hover {
@@ -39,7 +46,7 @@
 .navActions {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
 .igBtn {
@@ -47,8 +54,8 @@
   color: white !important;
   font-weight: 600;
   text-transform: uppercase;
-  font-size: 0.98rem;
-  padding: 0.45rem 1.3rem;
+  font-size: 0.85rem;
+  padding: 0.4rem 1.1rem;
   border-radius: 30px;
   line-height: 1;
   letter-spacing: 0.05em;
@@ -67,7 +74,7 @@
   color: var(--color-accent);
   font-weight: 600;
   text-transform: uppercase;
-  font-size: 1.17rem;
+  font-size: 0.9rem;
   transition: opacity 0.3s ease;
   white-space: nowrap;
 }
@@ -81,7 +88,7 @@
   flex-direction: column;
   gap: 6px;
   cursor: pointer;
-  z-index: 1100; /* Above mobile menu */
+  z-index: 1100;
   padding: 5px;
 }
 
@@ -131,7 +138,6 @@
   transform: translateX(0);
 }
 
-/* Staggered animation for links */
 .mobileMenu.open a:nth-child(1) { transition-delay: 0.1s; }
 .mobileMenu.open a:nth-child(2) { transition-delay: 0.2s; }
 .mobileMenu.open a:nth-child(3) { transition-delay: 0.3s; }
@@ -365,11 +371,11 @@
 /* Media Queries */
 @media (max-width: 1024px) {
   .navLinks {
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
   
   .navLinks a {
-    font-size: 1rem;
+    font-size: 0.85rem;
   }
 }
 
@@ -387,21 +393,21 @@
   }
 
   .logoContainer {
-    max-width: 180px;
+    max-width: 140px;
   }
 }
 
 @media (max-width: 480px) {
   .logoContainer {
-    max-width: 150px;
+    max-width: 130px;
   }
 
   .cartBtn {
-    font-size: 1rem;
+    font-size: 0.85rem;
   }
 
   .navbar {
-    padding: 1rem 0;
+    padding: 0.6rem 0;
   }
 }
 
