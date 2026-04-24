@@ -1,10 +1,10 @@
 .navbar {
-  border-bottom: 1px solid rgba(233, 193, 118, 0.2);
-  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(233, 193, 118, 0.1);
+  padding: 0.3rem 0; /* Zmniejszone o kolejne 10% */
   position: sticky;
   top: 0;
-  background-color: rgba(18, 20, 17, 0.95);
-  backdrop-filter: blur(10px);
+  background-color: rgba(18, 20, 17, 0.98);
+  backdrop-filter: blur(15px);
   z-index: 100;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -21,21 +21,27 @@
 
 .logoContainer {
   display: block;
-  max-width: 160px;
+  max-width: 90px; /* Bardzo małe logo na desktopie dla elegancji */
   line-height: 0;
+  transition: opacity 0.3s ease;
+}
+
+.logoContainer:hover {
+  opacity: 0.8;
 }
 
 .navLinks {
   display: flex;
-  gap: 1.5rem;
+  gap: 2.5rem; /* Większe odstępy między linkami */
 }
 
 .navLinks a {
-  font-weight: 500;
-  letter-spacing: 0.05em;
+  font-weight: 400; /* Lżejsza czcionka */
+  letter-spacing: 0.15em; /* Większe odstępy między literami - styl premium */
   text-transform: uppercase;
-  font-size: 0.9rem;
-  transition: color 0.3s ease;
+  font-size: 0.75rem; /* Bardzo mała, elegancka czcionka */
+  color: rgba(227, 227, 222, 0.7);
+  transition: all 0.3s ease;
   white-space: nowrap;
 }
 
@@ -46,41 +52,43 @@
 .navActions {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 2rem;
 }
 
 .igBtn {
-  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-  color: white !important;
-  font-weight: 600;
+  background: transparent;
+  border: 1px solid rgba(233, 193, 118, 0.3);
+  color: var(--color-accent) !important;
+  font-weight: 500;
   text-transform: uppercase;
-  font-size: 0.85rem;
-  padding: 0.4rem 1.1rem;
-  border-radius: 30px;
+  font-size: 0.7rem;
+  padding: 0.4rem 1.2rem;
+  border-radius: 2px; /* Bardziej kanciaste - bardziej pro */
   line-height: 1;
-  letter-spacing: 0.05em;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .igBtn:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
+  background: var(--color-accent);
+  color: var(--color-surface) !important;
 }
 
 .cartBtn {
   color: var(--color-accent);
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
-  font-size: 0.9rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
   transition: opacity 0.3s ease;
   white-space: nowrap;
 }
 
 .cartBtn:hover {
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 .hamburger {
@@ -94,8 +102,8 @@
 
 .hamburger span {
   display: block;
-  width: 25px;
-  height: 2px;
+  width: 22px;
+  height: 1px; /* Cieńsze linie hamburgera */
   background-color: var(--color-accent);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -371,11 +379,11 @@
 /* Media Queries */
 @media (max-width: 1024px) {
   .navLinks {
-    gap: 1.25rem;
+    gap: 1.5rem;
   }
   
   .navLinks a {
-    font-size: 0.85rem;
+    font-size: 0.7rem;
   }
 }
 
@@ -393,17 +401,17 @@
   }
 
   .logoContainer {
-    max-width: 140px;
+    max-width: 120px; /* Nieco większe na mobilce dla czytelności */
   }
 }
 
 @media (max-width: 480px) {
   .logoContainer {
-    max-width: 130px;
+    max-width: 110px;
   }
 
   .cartBtn {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
 
   .navbar {
