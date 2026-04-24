@@ -1,0 +1,172 @@
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.subtitle {
+  color: var(--color-sage);
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+.checkoutGrid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+@media (max-width: 992px) {
+  .checkoutGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sectionTitle {
+  font-family: var(--font-headline);
+  color: var(--color-accent);
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(233, 193, 118, 0.1);
+  padding-bottom: 0.5rem;
+}
+
+.checkoutItem {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.itemImage {
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.itemInfo {
+  flex-grow: 1;
+}
+
+.itemName {
+  font-family: var(--font-calligraphy);
+  font-size: 1.4rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 400;
+}
+
+.itemPrice {
+  color: var(--color-sage);
+  margin: 0;
+}
+
+.itemTotal {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--color-accent);
+}
+
+.summaryCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(233, 193, 118, 0.1);
+  border-radius: 20px;
+  padding: 2.5rem;
+  position: sticky;
+  top: 120px;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  color: var(--color-sage);
+}
+
+.totalRow {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(233, 193, 118, 0.2);
+  color: var(--color-typography);
+  font-weight: bold;
+  font-size: 1.5rem;
+  font-family: var(--font-headline);
+}
+
+.totalRow span:last-child {
+  color: var(--color-accent);
+}
+
+.payBtn {
+  width: 100%;
+  padding: 1.25rem;
+  background: var(--color-accent);
+  color: var(--color-surface);
+  border: none;
+  border-radius: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.payBtn:hover:not(:disabled) {
+  background: white;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.payBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.secureNotice {
+  text-align: center;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 1.5rem;
+}
+
+.emptyContainer, .successContainer {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+.successCard {
+  background: rgba(233, 193, 118, 0.05);
+  border: 1px solid var(--color-accent);
+  padding: 4rem;
+  border-radius: 30px;
+  max-width: 600px;
+}
+
+.successCard p {
+  color: var(--color-sage);
+  margin-bottom: 2rem;
+}
+
+.successIcon {
+  width: 80px;
+  height: 80px;
+  background: var(--color-accent);
+  color: var(--color-surface);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  margin: 0 auto 2rem;
+}

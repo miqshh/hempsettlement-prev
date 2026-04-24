@@ -1,0 +1,71 @@
+.hero {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 5rem;
+}
+
+.subtitle {
+  color: var(--color-sage);
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 6rem;
+}
+
+.textSection p {
+  color: var(--color-typography);
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.valuesSection {
+  background: var(--color-drawer);
+  padding: 4rem;
+  border-radius: 4px;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.valueCard {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(233, 193, 118, 0.1);
+  transition: border-color 0.3s ease;
+}
+
+.valueCard:hover {
+  border-color: rgba(233, 193, 118, 0.5);
+}
+
+.valueCard h3 {
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.valueCard p {
+  color: var(--color-sage);
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+  .valuesGrid {
+    grid-template-columns: 1fr;
+  }
+  .valuesSection {
+    padding: 2rem;
+  }
+}
