@@ -1,7 +1,7 @@
 .hero {
   position: relative;
-  height: 65vh;
-  min-height: 550px;
+  height: 80vh;
+  min-height: 650px;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -23,8 +23,8 @@
 
 .heroContent {
   max-width: 800px;
-  z-index: 1;
-  padding-top: 85px;
+  z-index: 10;
+  padding-top: 100px;
 }
 
 .goldText {
@@ -46,7 +46,7 @@
 .heroKicker {
   text-transform: uppercase;
   letter-spacing: 0.3em;
-  font-size: 1.1rem; /* Zwiększone o ok. 30% (z 0.85rem) */
+  font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
   position: relative;
@@ -66,7 +66,7 @@
   -webkit-background-clip: text;
   background-clip: text;
   animation: goldShimmer 4s infinite linear;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));
+  filter: drop-shadow(0 4px 15px rgba(0,0,0,1));
 }
 
 @keyframes goldShimmer {
