@@ -2,6 +2,7 @@
 const nextConfig = {
   output: 'export',
   basePath: '/hempsettlement-prev',
+  assetPrefix: '/hempsettlement-prev/', // Dodajemy prefix dla zasobów statycznych
   images: {
     unoptimized: true,
   },
