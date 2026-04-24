@@ -4,6 +4,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  // Całkowite wyłączenie sprawdzania typów i lintera podczas budowania na serwerze
   typescript: {
     ignoreBuildErrors: true,
   },
