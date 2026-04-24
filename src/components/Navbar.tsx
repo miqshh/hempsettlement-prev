@@ -8,7 +8,44 @@ import styles from './Navbar.module.css';
 export default function Navbar() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const { items, totalItems, totalPrice, removeFromCart } = useCart();
+
+  // Scroll handler for hiding/showing navbar
+  useEffect(() => {
+    const controlNavbar = () => {
+      if (typeof window !== 'undefined') {
+        const currentScrollY = window.scrollY;
+        
+        // Always show at the very top
+        if (currentScrollY < 10) {
+          setIsVisible(true);
+          setLastScrollY(currentScrollY);
+          return;
+        }
+
+        // Don't hide if mobile menu or cart is open
+        if (isMobileMenuOpen || isDrawerOpen) {
+          setIsVisible(true);
+          return;
+        }
+
+        if (currentScrollY > lastScrollY && currentScrollY > 80) {
+          // Scrolling down
+          setIsVisible(false);
+        } else if (currentScrollY < lastScrollY) {
+          // Scrolling up
+          setIsVisible(true);
+        }
+        
+        setLastScrollY(currentScrollY);
+      }
+    };
+
+    window.addEventListener('scroll', controlNavbar);
+    return () => window.removeEventListener('scroll', controlNavbar);
+  }, [lastScrollY, isMobileMenuOpen, isDrawerOpen]);
 
   // Close mobile menu when a link is clicked
   const handleMobileMenuClick = () => {
@@ -29,7 +66,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={styles.navbar}>
+      <nav className={`${styles.navbar} ${!isVisible ? styles.navbarHidden : ''}`}>
         <div className={`container ${styles.navContainer}`}>
           <Link href="/" className={styles.logoContainer} onClick={() => setIsMobileMenuOpen(false)}>
             <Image 
@@ -70,9 +107,15 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile Menu Overlay */}
+      <div 
+        className={`${styles.mobileMenuOverlay} ${isMobileMenuOpen ? styles.open : ''}`}
+        onClick={() => setIsMobileMenuOpen(false)}
+      ></div>
+
+      {/* Mobile Menu Drawer */}
       <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.open : ''}`}>
         <Link href="/" onClick={handleMobileMenuClick}>Strona Główna</Link>
-        <Link href="/sklep" onClick={handleMobileMenuClick}>Sklep</Link>
+        <Link href="/sklep" onClick={handleMobileMenuClick} className={styles.goldLink}>Sklep</Link>
         <Link href="/wspolpraca" onClick={handleMobileMenuClick}>Współpraca</Link>
         <Link href="/o-nas" onClick={handleMobileMenuClick}>O nas</Link>
         <a 
@@ -86,7 +129,7 @@ export default function Navbar() {
         </a>
       </div>
 
-      {/* Drawer */}
+      {/* Cart Drawer */}
       <div className={`${styles.drawerOverlay} ${isDrawerOpen ? styles.open : ''}`} onClick={() => setIsDrawerOpen(false)}></div>
       <div className={`${styles.drawer} ${isDrawerOpen ? styles.open : ''}`}>
         <div className={styles.drawerHeader}>
